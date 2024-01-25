@@ -1,0 +1,18 @@
+{
+  "name": "espacoviprest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "sequelize": "^6.35.2",
+    "sharp": "^0.33.2"
+  }
+}

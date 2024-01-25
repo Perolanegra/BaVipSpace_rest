@@ -1,0 +1,35 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+
+  node-app:
+    build: .
+    command: npm run dev
+    ports:
+      - "${PORT}:3000"
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      PORT: ${PORT}
+      DB_HOST: postgres
+      DB_USER: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 1g
