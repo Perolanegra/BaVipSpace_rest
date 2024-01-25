@@ -21,9 +21,8 @@ const scheduling = database.define("Scheduling", {
     type: Sequelize.DATE,
   },
   description: Sequelize.STRING,
-  instructor: {
-    type: Sequelize.STRING,
-    unique: true,
+  instructor_id: { // this will store the id
+    type: Sequelize.NUMBER,
     allowNull: false,
   },
   createdAt: {

@@ -20,8 +20,8 @@ const upload = multer({ storage: storage });
 /** Endpoints **/
 
 /** Endpoints posts */
+routes.post("/schedule", upload.single("image"), schedulingCtrl.store);
 routes.get("/posts", cm.cacheVerify, schedulingCtrl.getAll);
-// routes.post("/posts", upload.single("image"), pCtrl.store);
 /** Fim posts */
 
 /** Endpoints Usuário */
