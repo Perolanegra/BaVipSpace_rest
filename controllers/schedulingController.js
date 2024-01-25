@@ -1,6 +1,4 @@
-const mongoose = require("mongoose");
-
-const Posts = mongoose.model("Posts");
+const { getSchedulingRepo, getSchedulingsRepo, storeSchedulingRepo } = require('../repositories/schedulingRepo');
 
 class SchedulingController {
   constructor() {
@@ -23,8 +21,8 @@ class SchedulingController {
     try {
       // Processando a imagem
       const imagePath = req.file.path;
-
-      const schedules = '' ;
+      // TODO: configurar o config.json para as variaveis de ambiente do postgresql
+      const schedules = await storeSchedulingRepo();
       return res.send(schedules);
     } catch (e) {
       return res.status(500).send({

@@ -7,8 +7,11 @@ WORKDIR /app
 # Files to container
 COPY package*.json ./
 
-# Instale as dependências
-RUN npm ci
+# Install dependencies
+RUN npm ci --only=production
+
+# Install dev dependencies (including nodemon)
+RUN npm install --only=development
 
 # Files to docker container after installation from lock.json
 COPY . .
@@ -17,4 +20,4 @@ COPY . .
 EXPOSE 3000
 
 # Comando para iniciar o aplicativo Node.js
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "start"]

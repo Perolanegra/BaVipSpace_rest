@@ -3,10 +3,10 @@ const routes = express.Router();
 const multer = require("multer");
 
 // const CategoriesCtrl = require("./controllers/CategoriesCtrl");
-const SchedulingCtrl = require("./src/controllers/schedulingController");
+const SchedulingCtrl = require("./controllers/schedulingController");
 // const UsersCtrl = require("./controllers/UsersCtrl");
 
-const CacheMiddleware = require("./src/middlewares/cacheMiddleware");
+const CacheMiddleware = require("./middlewares/cacheMiddleware");
 const cm = new CacheMiddleware({ cache: {} });
 const schedulingCtrl = new SchedulingCtrl();
 
