@@ -5,9 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "",
-    "start": "node server.js",
+    "start": "nodemon --watch ./ --ext js server.js",
     "dev": "npm run clean:app && docker compose up --build",
-    "clean:app": "sudo rm -rf postgres_data/ && sudo rm -rf imgs/ ",
+    "clean:app": "sudo rm -rf postgres_data/ && sudo rm -rf files/ ",
     "req": "node curlRequests.js"
   },
   "keywords": [],
