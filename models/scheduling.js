@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Scheduling extends Model {
     /**
@@ -13,16 +11,24 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Scheduling.init({
-    type: DataTypes.ENUM,
-    appointment_time: DataTypes.DATE,
-    description: DataTypes.STRING,
-    instructor_id: DataTypes.NUMBER,
-    createdAt: DataTypes.DATE,
-    updatedAt: DataTypes.DATE
-  }, {
-    sequelize,
-    modelName: 'Scheduling',
-  });
+  Scheduling.init(
+    {
+      type: DataTypes.ENUM([
+        "DEPILACAO",
+        "CORTE_CABELO",
+        "CORTE_BARBA",
+        "CORTE_COMPLETO",
+      ]),
+      appointment_time: DataTypes.DATE,
+      description: DataTypes.STRING,
+      instructor_id: DataTypes.NUMBER,
+      createdAt: DataTypes.DATE,
+      updatedAt: DataTypes.DATE,
+    },
+    {
+      sequelize,
+      modelName: "Scheduling",
+    }
+  );
   return Scheduling;
 };

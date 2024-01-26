@@ -22,6 +22,10 @@ const upload = multer({ storage: storage });
 /** Endpoints posts */
 routes.post("/schedule", upload.single("image"), schedulingCtrl.store);
 routes.get("/posts", cm.cacheVerify, schedulingCtrl.getAll);
+routes.get("/", (req, res, next) => {
+  console.log("bateu na raiz!");
+  res.send("hello world! Funcional nego.");
+});
 /** Fim posts */
 
 /** Endpoints Usuário */

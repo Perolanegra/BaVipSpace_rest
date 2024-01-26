@@ -8,10 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm ci --only=production
-
-# Install dev dependencies (including nodemon)
-RUN npm install --only=development
+RUN npm ci
 
 # Files to docker container after installation from lock.json
 COPY . .

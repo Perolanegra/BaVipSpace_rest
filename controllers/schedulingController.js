@@ -21,7 +21,6 @@ class SchedulingController {
     try {
       // Processando a imagem
       const imagePath = req.file.path;
-      // TODO: configurar o config.json para as variaveis de ambiente do postgresql
       const schedules = await storeSchedulingRepo();
       return res.send(schedules);
     } catch (e) {
